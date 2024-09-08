@@ -11,14 +11,11 @@ const CartItem = ({ onContinueShopping }) => {
   const calculateTotalAmount = () => {
     let total_cart_amount = 0;
     cart.forEach((item) => {
-        // Check if item.quantity and item.cost are valid numbers
-        if (typeof item.quantity !== 'number' || typeof item.cost !== 'number') {
-            console.error(`Invalid item found:`, item);
-        } else {
-            total_cart_amount += item.quantity * item.cost;
-        }
+    
+            total_cart_amount += parseFloat(item.quantity) * parseFloat(item.cost.substr(1));
+       
         console.log(`Current Total: ${total_cart_amount}`);
-        console.log(`Item Quantity: ${item.quantity}, Item Cost: ${item.cost}`);
+        console.log(`Item Quantity: ${item.quantity}, Item Cost: ${item.cost.substr(1)}`);
     });
 
     return total_cart_amount;
