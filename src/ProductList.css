@@ -39,6 +39,16 @@ body {
     text-decoration: none;
    
 }
+.cart{
+    position: relative;
+}
+.cartTotal{
+    position: absolute;
+    font-size:20 ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* Product Grid */
 .product-grid {
