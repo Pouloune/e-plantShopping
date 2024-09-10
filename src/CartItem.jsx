@@ -50,6 +50,7 @@ const handleIncrement = (name, quantity) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    return parseFloat(item.quantity) * parseFloat(item.cost.substr(1));
   };
 
   return (
