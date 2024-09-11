@@ -261,13 +261,30 @@ const handlePlantsClick = (e) => {
   };
 
 
-  const totalItem = () => {
+ const totalItem = () => {
     let total=0;
-    cart.array.forEach(element => {
-        total += parseFloat(element.quantity);
-    });
+    cart.forEach((element) => {
+        total += parseFloat(element.quantity) || 0;
+    })
     return total;
   }
+  useEffect(() => {
+    console.log("Cart updated:", cart);
+
+    // Update addedToCart based on cart changes
+    const updatedAddedToCart = {};
+    cart.forEach(element => {
+        if (parseFloat(element.quantity) > 0) {
+            updatedAddedToCart[element.name] = true;
+        } else {
+            updatedAddedToCart[element.name] = false;
+        }
+    });
+
+    // Update state with new values
+    setAddedToCart(updatedAddedToCart);
+}, [cart]);
+
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -305,7 +322,7 @@ const handlePlantsClick = (e) => {
                 <img className="product-image" src={plant.image} alt={plant.name} />
                 <div className="product-title">{plant.name}</div>
                 {/*Similarly like the above plant.name show other details like description and cost*/}
-                <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                <button  className="product-button" disabled={!!addedToCart[plant.name]} onClick={() => handleAddToCart(plant)}>Add to Cart</button>
             </div>
             ))}
         </div>

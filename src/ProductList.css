@@ -44,7 +44,7 @@ body {
 }
 .cartTotal{
     position: absolute;
-    font-size:20 ;
+    font-size: 14px ;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -122,6 +122,10 @@ body {
 
 .product-button:hover {
     background-color: #c0392b;
+}
+
+.product-button:disabled{
+    background-color: gray;
 }
 
 /* Pseudo-elements - Sale badge */
