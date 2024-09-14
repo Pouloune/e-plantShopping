@@ -9,16 +9,16 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
-    let total_cart_amount = 0;
+    let total_cart_amnt = 0;
     cart.forEach((item) => {
     
-            total_cart_amount += parseFloat(item.quantity) * parseFloat(item.cost.substr(1));
+            total_cart_amnt += parseFloat(item.quantity) * parseFloat(item.cost.substr(1));
        
-        console.log(`Current Total: ${total_cart_amount}`);
+        console.log(`Current Total: ${total_cart_amnt}`);
         console.log(`Item Quantity: ${item.quantity}, Item Cost: ${item.cost.substr(1)}`);
     });
 
-    return total_cart_amount;
+    return total_cart_amnt;
 };
 
   const handleContinueShopping = (e) => {
