@@ -12,10 +12,10 @@ const CartItem = ({ onContinueShopping }) => {
     let total_cart_amnt = 0;
     cart.forEach((itm) => {
     
-            total_cart_amnt += parseFloat(itm.quantity) * parseFloat(item.cost.substr(1));
+            total_cart_amnt += parseFloat(itm.quantity) * parseFloat(itm.cost.substr(1));
        
         console.log(`Current Total: ${total_cart_amnt}`);
-        console.log(`Item Quantity: ${itm.quantity}, Item Cost: ${item.cost.substr(1)}`);
+        console.log(`Item Quantity: ${itm.quantity}, Item Cost: ${itm.cost.substr(1)}`);
     });
 
     return total_cart_amnt;
